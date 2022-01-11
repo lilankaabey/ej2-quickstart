@@ -1,6 +1,6 @@
 @import '../../node_modules/@syncfusion/ej2/material.css';
 
-#container {
+html, body, #container {
    height: 100%;
    overflow: hidden;
    width: 100%;

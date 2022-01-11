@@ -1,12 +1,15 @@
-import { Button } from '@syncfusion/ej2-buttons';
-
-let button: Button = new Button();
-
-button.appendTo('#normalbtn');
 import { Dialog } from '@syncfusion/ej2-popups';
+import { enableRipple } from '@syncfusion/ej2-base';
 
+enableRipple(true);
+
+//Initialize Dialog Component
 let dialog = new Dialog({
-   content: 'This is a Dialog with Content',
+   // enable modal dialog
+   isModal: true,
+   // overlayClick event handler
+   overlayClick: onOverlayClick,
+   content: 'This is a Model Dialog with Content',
    target: document.getElementById("container"),
    width: '250px'
 }); 
@@ -14,5 +17,9 @@ let dialog = new Dialog({
 dialog.appendTo('#dialog');
 
 document.getElementById("targetButton").onclick = (): void => {
-   dialog.show()
+   dialog.show();
+}
+
+function onOverlayClick() {
+   dialog.hide();
 }
