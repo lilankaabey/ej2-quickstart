@@ -5,10 +5,11 @@ enableRipple(true);
 
 //Initialize Dialog Component
 let dialog = new Dialog({
-   // enable modal dialog
-   isModal: true,
-   // overlayClick event handler
-   overlayClick: onOverlayClick,
+   //enable the header
+   header: 'Dialog',
+   // enable the close icon button in header
+   showCloseIcon: true,
+   // dialog content
    content: 'This is a Model Dialog with Content',
    target: document.getElementById("container"),
    width: '250px'
@@ -18,8 +19,4 @@ dialog.appendTo('#dialog');
 
 document.getElementById("targetButton").onclick = (): void => {
    dialog.show();
-}
-
-function onOverlayClick() {
-   dialog.hide();
 }
