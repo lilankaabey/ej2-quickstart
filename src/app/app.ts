@@ -6,7 +6,10 @@ enableRipple(true);
 //Initialize Dialog Component
 let dialog = new Dialog({
 
-   // The Dialog provides built-in support to render the action buttons on the footer (for ex: ‘OK’ or ‘Cancel’ buttons) by using buttons property. Each Dialog button allows the user to perform any action while clicking on it.
+   /* 
+      The Dialog supports to drag within its target container by grabbing the Dialog header, 
+      which allows the user to reposition the Dialog dynamically.
+   */
    // enable the footer buttons
    buttons: [
       {
@@ -27,6 +30,8 @@ let dialog = new Dialog({
          }
       }
    ],
+   // enable the draggable option
+   allowDragging: true,
    //enable the header
    header: 'Dialog',
    // enable the close icon button in header
