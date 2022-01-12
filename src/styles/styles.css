@@ -1,7 +1,29 @@
 @import '../../node_modules/@syncfusion/ej2/material.css';
 
-html, body, #container {
-   height: 100%;
-   overflow: hidden;
-   width: 100%;
+#dialog table,
+#dialog th,
+#dialog td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#dialog.e-dialog .e-footer-content {
+    padding: 0px 10px 10px;
+}
+
+.e-dialog .e-dlgcontent{
+    padding: 10px 16px 10px;
+}     
+
+.e-radio +label .e-label {
+    line-height:18px;
+}
+
+td {
+    padding: 6px;
+}
+
+#container {
+    height: 310px;
+    padding: 20px;
 }
