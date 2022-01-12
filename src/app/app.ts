@@ -1,4 +1,4 @@
-import { TreeView } from '@syncfusion/ej2-navigations';
+import { TreeView, NodeCheckEventArgs } from '@syncfusion/ej2-navigations';
 import { enableRipple } from '@syncfusion/ej2-base';
 
 enableRipple(true);
@@ -6,10 +6,10 @@ enableRipple(true);
 // define array of JSON
 let countries: { [key: string]: Object }[] = [
    { id: 1, name: 'Australia', hasChild: true, expanded: true },
-   { id: 2, pid: 1, name: 'New South Wales', isChecked: true },
+   { id: 2, pid: 1, name: 'New South Wales'},
    { id: 3, pid: 1, name: 'Victoria' },
    { id: 4, pid: 1, name: 'South Australia' },
-   { id: 6, pid: 1, name: 'Western Australia', isChecked: true },
+   { id: 6, pid: 1, name: 'Western Australia'},
    { id: 7, name: 'Brazil', hasChild: true },
    { id: 8, pid: 7, name: 'Paraná' },
    { id: 9, pid: 7, name: 'Ceará' },
@@ -31,7 +31,7 @@ let countries: { [key: string]: Object }[] = [
    { id: 25, pid: 21, name: 'Punjab' }
 ];
 
-let treeViewInstance = new TreeView({
+let treeViewInstance: TreeView = new TreeView({
    fields: { 
       dataSource: countries,
       id: 'id',
@@ -39,7 +39,14 @@ let treeViewInstance = new TreeView({
       parentID: 'pid',
       hasChildren: 'hasChild'
    },
-   showCheckBox: true
+   showCheckBox: true,
+   // the New South Wales and Western Australia nodes are checked at initial rendering
+   checkedNodes: ['2', '6'],
+   nodeChecked: nodeChecked
 });
 
 treeViewInstance.appendTo('#tree');
+
+function nodeChecked(args: NodeCheckEventArgs) {
+   alert("The checked node's id: " + treeViewInstance.checkedNodes); // To alert the checked node's id
+}
